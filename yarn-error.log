@@ -1,0 +1,47 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add graph-yoga
+
+PATH: 
+  /home/khaledsaad/bin:/home/khaledsaad/.local/bin:/home/khaledsaad/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.10.1
+
+Node version: 
+  9.11.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/graph-yoga: Not found
+      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:61073:18)
+      at Request.self.callback (/usr/share/yarn/lib/cli.js:120166:22)
+      at Request.emit (events.js:180:13)
+      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:121138:10)
+      at Request.emit (events.js:180:13)
+      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:121060:12)
+      at Object.onceWrapper (events.js:272:13)
+      at IncomingMessage.emit (events.js:185:15)
+      at endReadableNT (_stream_readable.js:1106:12)
+      at process._tickCallback (internal/process/next_tick.js:178:19)
+
+npm manifest: 
+  {
+    "name": "graphql-proxy",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Khaled Saad <elgendy1204@gmail.com>",
+    "license": "ISC",
+    "description": ""
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
