@@ -126,6 +126,12 @@ const resolvers = {
                                 profileMeter,
                                 cvUploadDate,
                                 hasCv
+                            },
+                            links: {
+                                cvDownload: {
+                                    href: cvHref,
+                                    meta: cvMeta
+                                }
                             }
                         }
                     } = data;
@@ -142,7 +148,9 @@ const resolvers = {
                         numOfProfileViews,
                         profileMeter,
                         cvUploadDate,
-                        hasCv
+                        hasCv,
+                        cvHref,
+                        cvMeta
                     };
                 });
         }
@@ -152,3 +160,196 @@ const resolvers = {
 const server = new GraphQLServer({ typeDefs, resolvers });
 
 server.start(() => console.log('Server is running on localhost:4000'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// {
+    // "data": {
+        // "relationships": {
+            // "user": {
+                // "data": {
+                    // "type": "user",
+                    // "id": "33"
+                // }
+            // },
+            // "workExperienceYears": {
+                // "data": {
+                    // "type": "workExperienceYears",
+                    // "id": "8"
+                // }
+            // },
+            // "educationalDegree": {
+                // "data": {
+                    // "type": "educationalDegree",
+                    // "id": "7"
+                // }
+            // }
+        // },
+        // "links": {
+            // "cvDownload": {
+                // "href": "https:\/\/api2.basharsys.com\/talent\/cv\/download",
+                // "meta": "downloud your cv from this link"
+            // }
+        // }
+    // },
+    // "included": [
+        // {
+            // "type": "city",
+            // "id": "1540",
+            // "attributes": {
+                // "name": "Alexandria",
+                // "translations": null,
+                // "latitude": "31.21170300",
+                // "longitude": "29.91916800"
+            // },
+            // "links": {
+                // "browsePage": "a\/Jobs-in-Alexandria"
+            // }
+        // },
+        // {
+            // "type": "area",
+            // "id": "89",
+            // "attributes": {
+                // "name": "Abu Qir",
+                // "translations": null,
+                // "latitude": "31.31408000",
+                // "longitude": "30.06057000"
+            // },
+            // "relationships": {
+                // "city": {
+                    // "data": {
+                        // "type": "city",
+                        // "id": "1540"
+                    // }
+                // }
+            // },
+            // "links": {
+                // "browsePage": "a\/Jobs-in-Abu-Qir"
+            // }
+        // },
+        // {
+            // "type": "country",
+            // "id": "56",
+            // "attributes": {
+                // "name": "Egypt",
+                // "iso2Code": "EG",
+                // "translations": null
+            // }
+        // },
+        // {
+            // "type": "country",
+            // "id": "57",
+            // "attributes": {
+                // "name": "El Salvador",
+                // "iso2Code": "SV",
+                // "translations": null
+            // }
+        // },
+        // {
+            // "type": "userAccountStatus",
+            // "id": "2",
+            // "attributes": {
+                // "status": "Active"
+            // }
+        // },
+        // {
+            // "type": "user",
+            // "id": "33",
+            // "attributes": {
+                // "email": "Sherif.Mohamed.Medhat@gmail.com",
+                // "firstName": "Sherifsherif",
+                // "middleName": "Mohamedmohamed",
+                // "lastName": "MedhatMedhatMohamed",
+                // "birthDate": "01\/26\/1990 00:00:00",
+                // "gender": "male",
+                // "photo": "https:\/\/wuzzuf-testing.s3.eu-west-1.amazonaws.com\/files\/upload_pic\/326d145223ae64e06ba44de69a361e23.PNG",
+                // "thumbnail": "https:\/\/wuzzuf-testing.s3.eu-west-1.amazonaws.com\/files\/upload_pic\/thumb_1cf64c50293cb1b3110bdfba2e52caf8.PNG",
+                // "postalCode": "0020",
+                // "primaryPhone": "01000110851",
+                // "otherPhone": "01212548961",
+                // "joinedAt": "12\/10\/2010 21:14:00",
+                // "lastLogin": "12\/14\/2018 19:48:15",
+                // "lastUpdate": "12\/12\/2018 13:58:29"
+            // },
+            // "relationships": {
+                // "residenceArea": {
+                    // "data": {
+                        // "type": "area",
+                        // "id": "89"
+                    // }
+                // },
+                // "residenceCity": {
+                    // "data": {
+                        // "type": "city",
+                        // "id": "1540"
+                    // }
+                // },
+                // "residenceCountry": {
+                    // "data": {
+                        // "type": "country",
+                        // "id": "56"
+                    // }
+                // },
+                // "homeCountry": {
+                    // "data": {
+                        // "type": "country",
+                        // "id": "57"
+                    // }
+                // },
+                // "status": {
+                    // "data": {
+                        // "type": "userAccountStatus",
+                        // "id": "2"
+                    // }
+                // }
+            // }
+        // },
+        // {
+            // "type": "workExperienceYears",
+            // "id": "8",
+            // "attributes": {
+                // "years": "6 years",
+                // "translations": null
+            // }
+        // },
+        // {
+            // "type": "educationalDegree",
+            // "id": "7",
+            // "attributes": {
+                // "name": "Master's Degree",
+                // "translations": null
+            // }
+        // }
+    // ]
+// }
+

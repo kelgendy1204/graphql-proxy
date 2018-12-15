@@ -42,14 +42,15 @@ const createAPI = baseURL => {
     // return request;
     // });
 
-    // instance.interceptors.response.use(response => {
-    // console.log('Response:', response);
-    // return response;
-    // });
+    instance.interceptors.response.use(response => {
+        console.log('Response:', response);
+        return response;
+    });
 
     return instance;
 };
 
-export const talentUrl = '/talent?include=workExperienceYears,educationalDegree,user.homeCountry,user.residenceCountry,user.residenceCity.country,user.residenceArea.city,user.status';
+export const talentUrl =
+    '/talent?include=workExperienceYears,educationalDegree,user.homeCountry,user.residenceCountry,user.residenceCity.country,user.residenceArea.city,user.status';
 
 export default createAPI;
