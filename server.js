@@ -110,6 +110,18 @@ const resolvers = {
             return api
                 .get(talentUrl)
                 .then(data => {
+                    const user = data.included.find(elem => {
+                        return elem.type === 'user' && elem.id === data.data.relationships.user.data.id;
+                    });
+
+                    const workExperienceYears = data.included.find(elem => {
+                        return elem.type === 'workExperienceYears' && elem.id === data.data.relationships.workExperienceYears.data.id;
+                    });
+
+                    const educationalDegree = data.included.find(elem => {
+                        return elem.type === 'educationalDegree' && elem.id === data.data.relationships.educationalDegree.data.id;
+                    });
+
                     const {
                         data: {
                             id,
@@ -150,7 +162,37 @@ const resolvers = {
                         cvUploadDate,
                         hasCv,
                         cvHref,
-                        cvMeta
+                        cvMeta,
+                        user: {
+                            id: user.id,
+                            type: user.type,
+                            email: user.attributes.email,
+                            firstName: user.attributes.firstName,
+                            middleName: user.attributes.middleName,
+                            lastName: user.attributes.lastName,
+                            birthDate: user.attributes.birthDate,
+                            gender: user.attributes.gender,
+                            photo: user.attributes.photo,
+                            thumbnail: user.attributes.thumbnail,
+                            postalCode: user.attributes.postalCode,
+                            primaryPhone: user.attributes.primaryPhone,
+                            otherPhone: user.attributes.otherPhone,
+                            joinedAt: user.attributes.joinedAt,
+                            lastUpdate: user.attributes.lastUpdate,
+                            lastLogin: user.attributes.lastLogin
+                        },
+                        workExperienceYears: {
+                            id: workExperienceYears.id,
+                            type: workExperienceYears.type,
+                            years: workExperienceYears.attributes.years,
+                            translations: workExperienceYears.attributes.translations
+                        },
+                        educationalDegree: {
+                            id: educationalDegree.id,
+                            type: educationalDegree.type,
+                            name: educationalDegree.attributes.name,
+                            translations: educationalDegree.attributes.translations
+                        }
                     };
                 });
         }
@@ -194,34 +236,6 @@ server.start(() => console.log('Server is running on localhost:4000'));
 
 
 // {
-    // "data": {
-        // "relationships": {
-            // "user": {
-                // "data": {
-                    // "type": "user",
-                    // "id": "33"
-                // }
-            // },
-            // "workExperienceYears": {
-                // "data": {
-                    // "type": "workExperienceYears",
-                    // "id": "8"
-                // }
-            // },
-            // "educationalDegree": {
-                // "data": {
-                    // "type": "educationalDegree",
-                    // "id": "7"
-                // }
-            // }
-        // },
-        // "links": {
-            // "cvDownload": {
-                // "href": "https:\/\/api2.basharsys.com\/talent\/cv\/download",
-                // "meta": "downloud your cv from this link"
-            // }
-        // }
-    // },
     // "included": [
         // {
             // "type": "city",
@@ -282,25 +296,7 @@ server.start(() => console.log('Server is running on localhost:4000'));
                 // "status": "Active"
             // }
         // },
-        // {
-            // "type": "user",
-            // "id": "33",
-            // "attributes": {
-                // "email": "Sherif.Mohamed.Medhat@gmail.com",
-                // "firstName": "Sherifsherif",
-                // "middleName": "Mohamedmohamed",
-                // "lastName": "MedhatMedhatMohamed",
-                // "birthDate": "01\/26\/1990 00:00:00",
-                // "gender": "male",
-                // "photo": "https:\/\/wuzzuf-testing.s3.eu-west-1.amazonaws.com\/files\/upload_pic\/326d145223ae64e06ba44de69a361e23.PNG",
-                // "thumbnail": "https:\/\/wuzzuf-testing.s3.eu-west-1.amazonaws.com\/files\/upload_pic\/thumb_1cf64c50293cb1b3110bdfba2e52caf8.PNG",
-                // "postalCode": "0020",
-                // "primaryPhone": "01000110851",
-                // "otherPhone": "01212548961",
-                // "joinedAt": "12\/10\/2010 21:14:00",
-                // "lastLogin": "12\/14\/2018 19:48:15",
-                // "lastUpdate": "12\/12\/2018 13:58:29"
-            // },
+        // { user
             // "relationships": {
                 // "residenceArea": {
                     // "data": {
@@ -332,22 +328,6 @@ server.start(() => console.log('Server is running on localhost:4000'));
                         // "id": "2"
                     // }
                 // }
-            // }
-        // },
-        // {
-            // "type": "workExperienceYears",
-            // "id": "8",
-            // "attributes": {
-                // "years": "6 years",
-                // "translations": null
-            // }
-        // },
-        // {
-            // "type": "educationalDegree",
-            // "id": "7",
-            // "attributes": {
-                // "name": "Master's Degree",
-                // "translations": null
             // }
         // }
     // ]
