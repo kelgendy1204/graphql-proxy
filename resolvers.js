@@ -1,4 +1,4 @@
-import createAPI, { talentUrl } from './api';
+import createAPI, { talentUrl } from './helpers/api';
 require('dotenv').config();
 
 const api = createAPI('https://api2.basharsys.com');
