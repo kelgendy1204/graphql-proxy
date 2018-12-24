@@ -38,14 +38,14 @@ const createAPI = baseURL => {
     );
 
     // instance.interceptors.request.use(request => {
-    // console.log('Starting Request', request);
-    // return request;
+    //     console.log('Starting Request', request);
+    //     return request;
     // });
 
-    instance.interceptors.response.use(response => {
-        console.log('Response:', response);
-        return response;
-    });
+    // instance.interceptors.response.use(response => {
+    //     console.log('Response:', response);
+    //     return response;
+    // });
 
     return instance;
 };
